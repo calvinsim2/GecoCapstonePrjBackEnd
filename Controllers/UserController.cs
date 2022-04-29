@@ -109,16 +109,18 @@ namespace CapstoneProjectBlog.Controllers
                 });
             }
 
-            if (userAddDtoObj.RoleID != '1' || userAddDtoObj.RoleID != '2')
+            // check if RoleID matches existing roles
+            if (userAddDtoObj.RoleID != 1 && userAddDtoObj.RoleID != 2)
             {
                 return BadRequest(new
                 {
                     StatusCode = 400,
-                    Message = "RoleID assigned to unknown, please check backend or database",
+                    Message = "RoleID assigned to unknown, please ensure correct RoleID is inserted.",
 
                 });
             }
 
+            // check if email already exists
             var isEmailExist = await _context.UserModels.AsNoTracking().FirstOrDefaultAsync(a => a.Email == userAddDtoObj.Email);
             if (isEmailExist != null)
             {
@@ -178,6 +180,7 @@ namespace CapstoneProjectBlog.Controllers
                                 "1 - Blogger" + "<br>" +
                                 "2 - User";
 
+            // SendEmailAsync, is inbuilt into IMailService
             await _mailService.SendEmailAsync(mailModel);
 
             return Ok(new

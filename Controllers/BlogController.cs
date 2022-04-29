@@ -60,7 +60,8 @@ namespace CapstoneProjectBlog.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<BlogModel>> GetIndividualBlog(int id)
         {
-            var blog = await _context.BlogModels.Include(a => a.User).Include(a => a.Comments).ThenInclude(a => a.User).AsNoTracking().FirstOrDefaultAsync(a => a.BlogID == id);
+            var blog = await _context.BlogModels.Include(a => a.User).Include(a => a.Comments).ThenInclude(a => a.User).AsNoTracking()
+                .FirstOrDefaultAsync(a => a.BlogID == id);
 
             if (blog == null)
             {
@@ -127,6 +128,8 @@ namespace CapstoneProjectBlog.Controllers
 
                 });
             }
+
+            
 
             // if there are multiple images, we can use this. in future
             foreach (var file in files)
