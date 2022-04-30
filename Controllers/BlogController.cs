@@ -116,7 +116,7 @@ namespace CapstoneProjectBlog.Controllers
             var blogDtoString = Request.Form["BlogDetails"];
             // remember, when we send it over from front end, data is in a string
             var blogAddDtoObj = JsonConvert.DeserializeObject<BlogAddDto>(blogDtoString);
-            // need www.root folder.
+            // need www.root folder.n
             // wwwroot/UserImages/<whatever your .jpg or png name is>
             var uploads = Path.Combine(_env.WebRootPath, "BlogImages");
             if (blogAddDtoObj == null)

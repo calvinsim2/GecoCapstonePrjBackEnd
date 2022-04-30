@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace CapstoneProjectBlog.Controllers
@@ -53,7 +54,7 @@ namespace CapstoneProjectBlog.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<CommentModel>> GetIndividualComment(int id)
         {
-            var comment = await _context.CommentModels.Include(a => a.User).AsNoTracking().FirstOrDefaultAsync(a => a.CommentID == id);
+            var comment = await _context.CommentModels.Include(a => a.User).OrderByDescending(c => c.CreatedDate).AsNoTracking().FirstOrDefaultAsync(a => a.CommentID == id);
 
             if (comment == null)
             {
@@ -62,6 +63,32 @@ namespace CapstoneProjectBlog.Controllers
                     StatusCode = 404,
                     Message = "No Comment with given ID Found.",
 
+                });
+            }
+
+            return Ok(new
+            {
+                StatusCode = 200,
+                Message = "Success",
+                Result = comment,
+
+            });
+        }
+
+        // GET BY PARTICULAR USER
+        [HttpGet("user/{id}")]
+        
+        public async Task<ActionResult<CommentModel>> GetCommentFromIndividualUser(int id)
+        {
+            var comment = _context.CommentModels.Include(a => a.User).Include(b=>b.Blog).Where(a => a.UserID == id);
+            // .Find(a => a.UserID == id);
+
+            if (comment == null)
+            {
+                return Ok(new
+                {
+                    StatusCode = 200,
+                    Message = "User has not posted comments on any blog yet.",
                 });
             }
 
