@@ -46,7 +46,6 @@ namespace CapstoneProjectBlog.Data.Context
             });
 
 
-
             modelBuilder.Entity<BlogModel>()
                 .ToTable("tbl_Blog")
                 .HasOne(a => a.User)

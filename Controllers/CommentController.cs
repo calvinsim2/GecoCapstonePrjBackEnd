@@ -77,10 +77,11 @@ namespace CapstoneProjectBlog.Controllers
 
         // GET BY PARTICULAR USER
         [HttpGet("user/{id}")]
+  
         
         public async Task<ActionResult<CommentModel>> GetCommentFromIndividualUser(int id)
         {
-            var comment = _context.CommentModels.Include(a => a.User).Include(b=>b.Blog).Where(a => a.UserID == id);
+            var comment = await _context.CommentModels.Include(a => a.User).Include(b=>b.Blog).Where(a => a.UserID == id).ToListAsync();
             // .Find(a => a.UserID == id);
 
             if (comment == null)

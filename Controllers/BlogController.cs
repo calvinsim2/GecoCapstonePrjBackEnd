@@ -34,6 +34,7 @@ namespace CapstoneProjectBlog.Controllers
 
         // GET: api/Blog
         [HttpGet]
+        
         public async Task<ActionResult<BlogModel>> GetAllBlog()
         {
             var blogList = await _context.BlogModels.OrderByDescending(c => c.PublishDate).Include(a=>a.User).Include(a=>a.Comments).ThenInclude(b=>b.User).ToListAsync();
