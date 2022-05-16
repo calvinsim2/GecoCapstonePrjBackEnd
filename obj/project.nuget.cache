@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "QLiXDsCgyqcA5zJjqSf0znlE+5Aee/+7h69odBeOOl43vlhbVQAvRZO3ym0hGYDbr1RxTLgmSXtXj8+z/YdklQ==",
+  "dgSpecHash": "72a36zrnzNDDjRG8OUGAhpX3xsfWkeuIzh5Jsmv59145R9RrQSebRWITRrjHjGfkCdLiOTxnD2zPhr6/D1vkOw==",
   "success": true,
   "projectFilePath": "C:\\Users\\calvi\\Desktop\\GECOLESSON\\Capstone\\CapstoneProjectBlog\\CapstoneProjectBlog.csproj",
   "expectedPackageFiles": [
@@ -145,7 +145,7 @@
     "C:\\Users\\calvi\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\calvi\\.nuget\\packages\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
     "C:\\Users\\calvi\\.nuget\\packages\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
-    "C:\\Users\\calvi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.16\\microsoft.netcore.app.host.win-x64.5.0.16.nupkg.sha512"
+    "C:\\Users\\calvi\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512"
   ],
   "logs": []
 }
